@@ -1,1 +1,107 @@
-# TEL
+# Tree Energy Loss: Towards Sparsely Annotated Semantic Segmentation
+
+
+## Introduction
+This repository is an official implementation of the CVPR 2022 paper [Tree Energy Loss: Towards Sparsely Annotated Semantic Segmentation](https://arxiv.org/).
+
+![TEL](figs/flowchart.png)
+
+**Abstract.** Sparsely annotated semantic segmentation (SASS) aims to train a segmentation network with coarse-grained (i.e.,
+point-, scribble-, and block-wise) supervisions, where only  a small proportion of pixels are labeled in each image. In
+this paper, we propose a novel tree energy loss for SASS by providing semantic guidance for unlabeled pixels. The
+tree energy loss represents images as minimum spanning trees to model both low-level and high-level pair-wise affinities.
+By sequentially applying these affinities to the network prediction, soft pseudo labels for unlabeled pixels are
+generated in a coarse-to-fine manner, achieving dynamic online self-training. The tree energy loss is effective and
+easy to be incorporated into existing frameworks by combining it with a traditional segmentation loss.
+
+## News
+(03/03/2022) TEL has been accepted by CVPR 2022.
+
+(12/03/2022) Update codes and models. 
+
+## Main Results
+|  **Method**  | **Backbone** | **Dataset**  |  **Annotation**  |  **mIoU**  |  **Model**  |
+|:------:|:------:|:------:|:------:|:------:| :------:| 
+| HRNet      | [HRNet_w48]((https://drive.google.com/file/d/)) | Cityscapes | block50  | 72.2 | [google](https://drive.google.com/file/d/) |
+| HRNet      | HRNet_w48 | Cityscapes | block20  | 66.8 | [google](https://drive.google.com/file/d/) |
+| HRNet      | HRNet_w48 | Cityscapes | block10  | 61.8 | [google](https://drive.google.com/file/d/) |
+| HRNet      | HRNet_w48 | ADE20k     | block50  | 40.3 | [google](https://drive.google.com/file/d/) |
+| HRNet      | HRNet_w48 | ADE20k     | block20  | 36.5 | [google](https://drive.google.com/file/d/) |
+| HRNet      | HRNet_w48 | ADE20k     | block10  | 34.7 | [google](https://drive.google.com/file/d/) |
+| DeeplabV3+ | [ResNet101]((https://drive.google.com/file/d/)) | VOC2012    | scribble | 76.9 | [google](https://drive.google.com/file/d/) |
+| DeeplabV3+ | ResNet101 | VOC2012    | point    | 65.4 | [google](https://drive.google.com/file/d/) |
+
+[comment]: <> (| LTF        | ResNet101 | VOC2012    | scribble |      | [google]&#40;https://drive.google.com/file/d/&#41; |)
+
+[comment]: <> (| LTF        | ResNet101 | VOC2012    | point    |      | [google]&#40;https://drive.google.com/file/d/&#41; |)
+
+## Requirements
+* Linux, Python>=3.6, CUDA>=10.0, pytorch == 1.7.1
+
+## Installation
+This implementation is built upon [openseg.pytorch](https://github.com/openseg-group/openseg.pytorch/tree/pytorch-1.7) and [TreeFilter-Torch](https://github.com/Megvii-BaseDetection/TreeFilter-Torch).
+Many thanks to the authors for the efforts.
+
+* git clone https://github.com/megvii-research/TEL
+* cd TEL
+* pip install -r requirements.txt
+* cd kernels/lib_tree_filter
+* sudo python3 setup.py build develop
+
+### Sparse Annotation Preparation
+* Please first follow the [Getting Started](https://github.com/openseg-group/openseg.pytorch/blob/master/GETTING_STARTED.md) for data preparation.
+* Download [scribble and point annotations](https://github.com/LEONOB2014/GatedCRFLoss/tree/master/datasets) provided by GatedCRFLoss.
+* Download [block annotations]() provided by ours.
+
+and finally, the dataset directory should look like:
+```
+$DATA_ROOT
+├── cityscapes
+│   ├── train
+│   │   ├── image
+│   │   ├── label
+│   │   └── sparse_label
+│   │       ├── block10
+│   │       ├── block20
+│   │       └── block50
+│   ├── val
+│   │   ├── image
+│   │   └── label
+├── ade20k
+│   ├── train
+│   │   ├── image
+│   │   ├── label
+│   │   └── sparse_label
+│   │       ├── block10
+│   │       ├── block20
+│   │       └── block50
+│   ├── val
+│   │   ├── image
+│   │   └── label
+├── voc2012
+│   ├── voc_scribbles.zip
+│   ├── voc_whats_the_point.json
+│   └── voc_whats_the_point_bg_from_scribbles.json
+```
+
+### Block-Supervised Setting 
+(1) To evaluate the released models:
+
+bash scripts/cityscapes/hrnet/demo.sh val block50
+
+(2) To train and evaluate your own models:
+
+bash scripts/cityscapes/hrnet/train.sh train model_name
+
+bash scripts/cityscapes/hrnet/train.sh val   model_name
+
+### Point-supervised and Scribble-supervised Settings  
+(1) To evaluate the released models:
+
+bash scripts/voc2012/deeplab/demo.sh val scribble
+
+(2) To train and evaluate your own models:
+
+bash scripts/voc2012/deeplab/train.sh train model_name
+
+bash scripts/voc2012/deeplab/train.sh val   model_name
