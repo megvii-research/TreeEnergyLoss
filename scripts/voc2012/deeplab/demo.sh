@@ -31,13 +31,13 @@ if [ "$1"x == "val"x ]; then
   python3 -u main.py --configs ${CONFIGS} --drop_last y --data_dir ${DATA_DIR} \
                        --backbone ${BACKBONE} --model_name ${MODEL_NAME} --checkpoints_name ${CHECKPOINTS_NAME} \
                        --phase test --gpu 0 --val_batch_size 1 \
-                       --resume ./checkpoints/voc2012/${CHECKPOINTS_NAME}_max_performance.pth \
+                       --resume ./models/voc2012/${CHECKPOINTS_NAME}.pth \
                        --loss_type ${LOSS_TYPE} --test_dir ${DATA_DIR}/val/image --sigma ${SIGMA} \
-                       --out_dir ${SAVE_DIR}${CHECKPOINTS_NAME}_val
+                       --out_dir ${SAVE_DIR}${CHECKPOINTS_NAME}_val_demo
 
   cd lib/metrics
   python3 -u pascal_context_evaluator.py --configs /data/liangzhiyuan/projects/openseg2/configs/voc2012/R_101_D_16.json \
-                                         --pred_dir ${SAVE_DIR}${CHECKPOINTS_NAME}_val/label \
+                                         --pred_dir ${SAVE_DIR}${CHECKPOINTS_NAME}_val_demo/label \
                                          --gt_dir ${DATA_DIR}/val/label
 
 else
