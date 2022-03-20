@@ -17,23 +17,21 @@ easy to be incorporated into existing frameworks by combining it with a traditio
 ## News
 (03/03/2022) TEL has been accepted by CVPR 2022.
 
-(12/03/2022) Update codes and models. 
+(15/03/2022) Update codes and models. 
 
 ## Main Results
 |  **Method**  | **Backbone** | **Dataset**  |  **Annotation**  |  **mIoU**  |  **Model**  |
 |:------:|:------:|:------:|:------:|:------:| :------:| 
-| HRNet      | [HRNet_w48]((https://drive.google.com/file/d/)) | Cityscapes | block50  | 72.2 | [google](https://drive.google.com/file/d/) |
-| HRNet      | HRNet_w48 | Cityscapes | block20  | 66.8 | [google](https://drive.google.com/file/d/) |
-| HRNet      | HRNet_w48 | Cityscapes | block10  | 61.8 | [google](https://drive.google.com/file/d/) |
-| HRNet      | HRNet_w48 | ADE20k     | block50  | 40.3 | [google](https://drive.google.com/file/d/) |
-| HRNet      | HRNet_w48 | ADE20k     | block20  | 36.5 | [google](https://drive.google.com/file/d/) |
-| HRNet      | HRNet_w48 | ADE20k     | block10  | 34.7 | [google](https://drive.google.com/file/d/) |
-| DeeplabV3+ | [ResNet101]((https://drive.google.com/file/d/)) | VOC2012    | scribble | 76.9 | [google](https://drive.google.com/file/d/) |
-| DeeplabV3+ | ResNet101 | VOC2012    | point    | 65.4 | [google](https://drive.google.com/file/d/) |
-
-[comment]: <> (| LTF        | ResNet101 | VOC2012    | scribble |      | [google]&#40;https://drive.google.com/file/d/&#41; |)
-
-[comment]: <> (| LTF        | ResNet101 | VOC2012    | point    |      | [google]&#40;https://drive.google.com/file/d/&#41; |)
+| HRNet      | [HRNet_w48](https://drive.google.com/file/d/1VSO6H8rERkz35NN1YwGCUKMfDlQBiek2/view?usp=sharing) | Cityscapes | block50  | 72.2 | [google](https://drive.google.com/file/d/1c0CezvGPXSiAKF7WAQlH1xzNT7rBqFWc/view?usp=sharing) |
+| HRNet      | HRNet_w48 | Cityscapes | block20  | 66.8 | [google](https://drive.google.com/file/d/16gcEUD7-3ou42_YOXMu301UKL4cmqQu6/view?usp=sharing) |
+| HRNet      | HRNet_w48 | Cityscapes | block10  | 61.8 | [google](https://drive.google.com/file/d/1CxRXUQTaIYKPvVAUEhxOIrcrsbLDKei3/view?usp=sharing) |
+| HRNet      | HRNet_w48 | ADE20k     | block50  | 40.3 | [google](https://drive.google.com/file/d/1FqQam5mgZChLe20k0wDttAdvpwKVSy4j/view?usp=sharing) |
+| HRNet      | HRNet_w48 | ADE20k     | block20  | 36.5 | [google](https://drive.google.com/file/d/1BvRFyZNM-DAsgl9F6B97qgsxdquiHjwg/view?usp=sharing) |
+| HRNet      | HRNet_w48 | ADE20k     | block10  | 34.7 | [google](https://drive.google.com/file/d/15LnWve8Yo8k5qgm3c6l92x5JFaiO5TG9/view?usp=sharing) |
+| DeeplabV3+ | [ResNet101](https://drive.google.com/file/d/1ciN4ETiqEOchgG6SBs8O1i2mOeNcahbJ/view?usp=sharing) | VOC2012    | point    | 65.4 | [google](https://drive.google.com/file/d/14oZolbviusChSkcmJLFY5YGRYxJR40Qa/view?usp=sharing) |
+| LTF        | ResNet101 | VOC2012    | point    | 68.0 | [google](https://drive.google.com/file/d/1uDswB7dpeTD3J7Tb9pQGVwljV5muPLZN/view?usp=sharing) |
+| DeeplabV3+ | ResNet101 | VOC2012    | scribble | 77.6 | [google](https://drive.google.com/file/d/1SfUAqTihunJ9RrDHRYNpdouzfFQ4BOoq/view?usp=sharing) |
+| LTF        | ResNet101 | VOC2012    | scribble | 77.4 | [google](https://drive.google.com/file/d/1-iqsQKZX-ZHrKGdJrWJzChzsNWGwZqNx/view?usp=sharing) |
 
 ## Requirements
 * Linux, Python>=3.6, CUDA>=10.0, pytorch == 1.7.1
