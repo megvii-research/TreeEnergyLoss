@@ -2,7 +2,7 @@
 
 
 ## Introduction
-This repository is an official implementation of the CVPR 2022 paper [Tree Energy Loss: Towards Sparsely Annotated Semantic Segmentation](https://arxiv.org/).
+This repository is an official implementation of the CVPR 2022 paper [Tree Energy Loss: Towards Sparsely Annotated Semantic Segmentation](https://arxiv.org/abs/2203.10739).
 
 ![TEL](figs/flowchart.png)
 
