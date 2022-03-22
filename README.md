@@ -15,7 +15,7 @@ generated in a coarse-to-fine manner, achieving dynamic online self-training. Th
 easy to be incorporated into existing frameworks by combining it with a traditional segmentation loss.
 
 ## News
-(03/03/2022) TEL has been accepted by CVPR 2022.
+(03/03/2022) Tree Energy Loss has been accepted by CVPR 2022.
 
 (15/03/2022) Update codes and models. 
 
@@ -40,8 +40,8 @@ easy to be incorporated into existing frameworks by combining it with a traditio
 This implementation is built upon [openseg.pytorch](https://github.com/openseg-group/openseg.pytorch/tree/pytorch-1.7) and [TreeFilter-Torch](https://github.com/Megvii-BaseDetection/TreeFilter-Torch).
 Many thanks to the authors for the efforts.
 
-* git clone https://github.com/megvii-research/TEL
-* cd TEL
+* git clone https://github.com/megvii-research/TreeEnergyLoss
+* cd TreeEnergyLoss
 * pip install -r requirements.txt
 * cd kernels/lib_tree_filter
 * sudo python3 setup.py build develop
@@ -49,7 +49,7 @@ Many thanks to the authors for the efforts.
 ### Sparse Annotation Preparation
 * Please first follow the [Getting Started](https://github.com/openseg-group/openseg.pytorch/blob/master/GETTING_STARTED.md) for data preparation.
 * Download [scribble and point annotations](https://github.com/LEONOB2014/GatedCRFLoss/tree/master/datasets) provided by GatedCRFLoss.
-* Download [block annotations]() provided by ours.
+* Download [block annotations](https://drive.google.com/drive/folders/1PimNy1On--zFrAcuIkL7sLkMFHu9FkIa?usp=sharing) provided by ours.
 
 and finally, the dataset directory should look like:
 ```
