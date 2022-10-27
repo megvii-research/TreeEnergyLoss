@@ -31,7 +31,7 @@ setup(
             name='tree_filter_cuda',
             include_dirs=[extensions_dir],
             sources=sources,
-            library_dirs=cuda_lib_path,
+            library_dirs=include_paths(cuda=True),
             extra_compile_args={'cxx':['-O3'],
                                 'nvcc':['-O3']})
     ],
